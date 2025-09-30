@@ -9,18 +9,26 @@ This is a minimal Django project to demonstrate the PooButton app in action.
    pip install -e ..
    ```
 
-2. **Add media files** (REQUIRED - app won't work without these):
+2. **Add media files**:
 
-   You need to provide 5 audio files and 1 video file:
+   **Demo video included:** A sample demo video (`poobutton-demo.mp4`) is included in this directory. You can use it for testing:
 
    ```bash
-   # Copy your files to:
+   # The demo video is already copied to the static files
+   # Located at: ../poobutton/static/poobutton/video/finale.mp4
+   ```
+
+   **Audio files (REQUIRED - not included):**
+
+   You need to provide 5 audio files for full functionality:
+
+   ```bash
+   # Add your audio files to:
    ../poobutton/static/poobutton/audio/fart.mp3
    ../poobutton/static/poobutton/audio/warning1.mp3
    ../poobutton/static/poobutton/audio/warning2.mp3
    ../poobutton/static/poobutton/audio/warning3.mp3
    ../poobutton/static/poobutton/audio/warning4.mp3
-   ../poobutton/static/poobutton/video/finale.mp4  # or finale.webm
    ```
 
 3. **Run migrations**:

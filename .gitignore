@@ -69,3 +69,7 @@ htmlcov/
 
 # Keep directory structure
 !.gitkeep
+
+# Except demo files (small enough for git)
+!demo_project/poobutton-demo.mp4
+!poobutton/static/poobutton/video/finale.mp4

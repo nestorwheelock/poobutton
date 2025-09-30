@@ -182,7 +182,7 @@ python manage.py runserver
 # Visit http://127.0.0.1:8000/poobutton/
 ```
 
-**Note:** You need to add media files for the demo to work. See [ACCEPTANCE_TEST.md](./ACCEPTANCE_TEST.md) for instructions.
+**Demo video included!** A sample video (`poobutton-demo.mp4`) is provided for testing. Audio files not included - you'll need to add your own for full functionality. See [demo_project/README.md](./demo_project/README.md) for details.
 
 ---
 
