@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Don't Press the PooButton</title>
+    <link rel="stylesheet" href="{% static 'poobutton/css/button.css' %}">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Arcade Cabinet Frame -->
+        <div id="arcade-cabinet">
+            <div id="screen-bezel">
+                <div id="game-screen">
+                    <!-- Warning Text Display -->
+                    <div id="warning-text"></div>
+
+                    <!-- The Button -->
+                    <div id="button-container">
+                        <div id="arcade-button" class="button-up">
+                            <div class="button-top"></div>
+                            <div class="button-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retro Text -->
+            <div id="arcade-title">POO BUTTON</div>
+            <div id="arcade-subtitle">PRESS AT YOUR OWN RISK</div>
+        </div>
+
+        <!-- Full Screen Video (hidden initially) -->
+        <video id="finale-video" playsinline>
+            <source src="{% static 'poobutton/video/finale.mp4' %}" type="video/mp4">
+            <source src="{% static 'poobutton/video/finale.webm' %}" type="video/webm">
+        </video>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="audio-0" src="{% static 'poobutton/audio/fart.mp3' %}" preload="auto"></audio>
+    <audio id="audio-1" src="{% static 'poobutton/audio/warning1.mp3' %}" preload="auto"></audio>
+    <audio id="audio-2" src="{% static 'poobutton/audio/warning2.mp3' %}" preload="auto"></audio>
+    <audio id="audio-3" src="{% static 'poobutton/audio/warning3.mp3' %}" preload="auto"></audio>
+    <audio id="audio-4" src="{% static 'poobutton/audio/warning4.mp3' %}" preload="auto"></audio>
+
+    <!-- CSRF Token for AJAX -->
+    <script>
+        const CSRF_TOKEN = '{{ csrf_token }}';
+        const PRESS_URL = "{% url 'poobutton:press' %}";
+        const RESET_URL = "{% url 'poobutton:reset' %}";
+    </script>
+    <script src="{% static 'poobutton/js/button.js' %}"></script>
+</body>
+</html>

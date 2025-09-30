@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include SPEC.md
+include TASKS.md
+recursive-include poobutton/templates *
+recursive-include poobutton/static *
