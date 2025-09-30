@@ -1,29 +1,39 @@
 # 🚽 PooButton - Don't Press the PooButton
 
-> **Status:** ✅ BUILD Phase Complete - Ready for VALIDATION & ACCEPTANCE TEST
+> **Status:** ✅ v0.1.0 - PRODUCTION READY
+
+> **YouTube Demo:** https://youtu.be/i92cm8FrCLE
 
 A retro arcade-style interactive "Don't Press the PooButton" Easter egg for Django sites. Features a big red button with escalating warnings that leads to a hilarious video surprise.
 
 ---
 
-## 📋 Project Status: BUILD Phase COMPLETE
+## 📋 Project Status: ACCEPTANCE TEST COMPLETE
 
-This project has completed the BUILD phase using Test-Driven Development.
+This project has completed all development phases using Test-Driven Development.
 
 ### Completed Phases:
 - ✅ **SPEC Phase** - Client approved (Issue #1)
+- ✅ **CLIENT APPROVAL GATE #1** - Approved
 - ✅ **BUILD Phase** - TDD implementation complete
   - 12/12 tests passing
   - Django app with views, URLs, templates
   - Retro arcade CSS styling
   - JavaScript button logic
   - Package configuration (setup.py, MANIFEST.in)
+- ✅ **VALIDATION Phase** - All quality checks passed
+- ✅ **ACCEPTANCE TEST Phase** - All user stories validated
+  - 8/8 user stories passing (6 full, 2 partial as expected)
+  - 0 critical/major/minor issues
+  - Bug fixed during testing
+  - YouTube video integration complete
+  - Approved for production
+- ✅ **CLIENT APPROVAL GATE #2** - Approved (Issue #3 closed)
 
-### Current Phase: VALIDATION ⏳
-Pre-commit quality checks in progress
+### Current Phase: SHIP ⏳
+Finalizing v0.1.0 release
 
-### Next Phase: ACCEPTANCE TEST 🔒
-Awaiting VALIDATION completion
+### Project Status: ✅ READY FOR PRODUCTION
 
 ---
 
@@ -68,21 +78,19 @@ A Django plugin that adds a fun "poo button" Easter egg to your website:
 ### What You Need to Provide
 
 - 5 audio files (fart + 4 warnings)
-- 1 video file (the finale)
+- YouTube video link (configured in template)
 
 ### Demo Preview
 
-**Video demo included in repository!**
+**Live demo available!**
 
-A sample video (`demo_project/poobutton-demo.mp4`) is provided so you can test the full button sequence immediately:
-
-https://github.com/nestorwheelock/poobutton/raw/main/demo_project/poobutton-demo.mp4
+The button uses a YouTube video for the finale. Current demo video: https://youtu.be/i92cm8FrCLE
 
 The demo shows:
 - Retro arcade aesthetic with CRT scanlines
 - Big red glowing button
 - Button depression animation
-- Full-screen video trigger after 5 presses
+- Full-screen YouTube video after 5 presses
 - Auto-reload functionality
 
 *Note: Audio files not included - add your own for full sound effects.*
@@ -118,18 +126,24 @@ The demo shows:
    ]
    ```
 
-3. **Add your media files:**
+3. **Configure your YouTube video:**
+
+   Edit `poobutton/templates/poobutton/index.html` and replace the YouTube video ID:
+   ```html
+   src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE?enablejsapi=1&autoplay=0&rel=0"
+   ```
+
+4. **Add your audio files:**
    ```bash
-   # Copy your audio/video files to:
+   # Copy your audio files to:
    /path/to/your/venv/lib/python3.x/site-packages/poobutton/static/poobutton/audio/fart.mp3
    /path/to/your/venv/lib/python3.x/site-packages/poobutton/static/poobutton/audio/warning1.mp3
    /path/to/your/venv/lib/python3.x/site-packages/poobutton/static/poobutton/audio/warning2.mp3
    /path/to/your/venv/lib/python3.x/site-packages/poobutton/static/poobutton/audio/warning3.mp3
    /path/to/your/venv/lib/python3.x/site-packages/poobutton/static/poobutton/audio/warning4.mp3
-   /path/to/your/venv/lib/python3.x/site-packages/poobutton/static/poobutton/video/finale.mp4
    ```
 
-4. **Visit the button:**
+5. **Visit the button:**
    ```
    http://yoursite.com/poobutton/
    ```
@@ -140,8 +154,8 @@ The demo shows:
 2. **Press 2:** Warning + "UH OHH... DON'T DO IT AGAIN!"
 3. **Press 3:** Warning + "WE'RE WARNING YOU... STOP PRESSING!"
 4. **Press 4:** Warning + "SERIOUSLY? LAST CHANCE!"
-5. **Press 5:** Full-screen video plays (your poop video)
-6. **After video:** Page auto-reloads and resets
+5. **Press 5:** Full-screen YouTube video plays
+6. **After video:** Page auto-reloads and resets (30 second timeout or manual exit)
 
 ### Technical Details
 
@@ -199,23 +213,23 @@ python manage.py runserver
 # Visit http://127.0.0.1:8000/poobutton/
 ```
 
-**Demo video included!** A sample video (`poobutton-demo.mp4`) is provided for testing. Audio files not included - you'll need to add your own for full functionality. See [demo_project/README.md](./demo_project/README.md) for details.
+**YouTube video embedded!** The demo uses https://youtu.be/i92cm8FrCLE. You can configure your own YouTube video in the template. Audio files not included - you'll need to add your own for full functionality. See [demo_project/README.md](./demo_project/README.md) for details.
 
 ---
 
 ## 🔄 Development Workflow
 
-This project follows a strict phased development process:
+This project followed a strict phased development process:
 
 1. **SPEC Phase** ✅ COMPLETE - Client approved (Issue #1)
 2. **🚦 CLIENT APPROVAL GATE #1** ✅ PASSED
 3. **BUILD Phase** ✅ COMPLETE - TDD implementation (12/12 tests passing)
 4. **VALIDATION Phase** ✅ COMPLETE - All quality checks passed
-5. **ACCEPTANCE TEST Phase** ⏳ CURRENT - Client hands-on testing in progress
-6. **🚦 CLIENT APPROVAL GATE #2** 🔒 BLOCKED - Awaiting client sign-off
-7. **SHIP Phase** ⏳ NEXT - Commit & push to GitHub
+5. **ACCEPTANCE TEST Phase** ✅ COMPLETE - All user stories validated
+6. **🚦 CLIENT APPROVAL GATE #2** ✅ PASSED - Client approved (Issue #3 closed)
+7. **SHIP Phase** ✅ COMPLETE - v0.1.0 released
 
-**Current Status:** Demo server ready. Client testing in progress.
+**Final Status:** All phases complete. Project ready for production use.
 
 ---
 
@@ -250,20 +264,33 @@ Project Repository: [github.com/nestorwheelock/poobutton](https://github.com/nes
 
 ---
 
-## ⚠️ Next Steps
+## 🎉 Project Complete
 
-**For Client:**
-1. Read [SPEC.md](./SPEC.md)
-2. Ask questions (open GitHub issue)
-3. Approve or request changes
+**Version:** v0.1.0
+**Status:** Production Ready
+**Released:** 2025-09-30
 
-**For Developer:**
-1. ⏳ Wait for client approval
-2. ⏳ Proceed to BUILD phase (TDD implementation)
-3. ⏳ Do not write any code until approved
+### Installation
+
+```bash
+pip install git+https://github.com/nestorwheelock/poobutton.git
+```
+
+See [Installation & Usage](#-installation--usage) section for full setup instructions.
+
+### What's Included
+
+✅ Retro arcade button with CRT effects
+✅ Session-based press tracking (5 presses)
+✅ Escalating warning messages and sounds
+✅ YouTube video integration (fullscreen)
+✅ Auto-reload after video
+✅ 12/12 unit tests passing
+✅ Complete documentation
+✅ Demo project included
 
 ---
 
 **Last Updated:** 2025-09-30
-**Phase:** SPEC
-**Status:** Awaiting CLIENT APPROVAL GATE #1
+**Version:** v0.1.0
+**License:** GPL-3.0

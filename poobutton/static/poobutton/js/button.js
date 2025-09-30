@@ -4,6 +4,7 @@
 
     const MAX_PRESSES = 5;
     let pressCount = 0;
+    let player;
 
     // Warning messages for each press
     const warnings = [
@@ -17,7 +18,8 @@
     // DOM Elements
     const button = document.getElementById('arcade-button');
     const warningText = document.getElementById('warning-text');
-    const video = document.getElementById('finale-video');
+    const videoContainer = document.getElementById('finale-video');
+    const iframe = document.getElementById('youtube-player');
 
     // Audio elements
     const audioElements = [];
@@ -97,48 +99,47 @@
         // Small delay before video starts
         setTimeout(() => {
             // Hide game screen, show video
-            video.classList.add('playing');
+            videoContainer.classList.add('playing');
 
             // Attempt fullscreen (may be blocked on some browsers)
-            if (video.requestFullscreen) {
-                video.requestFullscreen().catch(err => {
+            if (videoContainer.requestFullscreen) {
+                videoContainer.requestFullscreen().catch(err => {
                     console.log('Fullscreen failed:', err);
                 });
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.mozRequestFullScreen) {
-                video.mozRequestFullScreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
+            } else if (videoContainer.webkitRequestFullscreen) {
+                videoContainer.webkitRequestFullscreen();
+            } else if (videoContainer.mozRequestFullScreen) {
+                videoContainer.mozRequestFullScreen();
+            } else if (videoContainer.msRequestFullscreen) {
+                videoContainer.msRequestFullscreen();
             }
 
-            // Play video
-            video.play().catch(err => {
-                console.log('Video play failed:', err);
-            });
+            // Play YouTube video by updating iframe src to include autoplay
+            iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+
+            // Schedule automatic reset after video duration
+            scheduleReset();
         }, 1000);
     }
 
-    // Video end handler - reset session and reload
-    video.addEventListener('ended', () => {
-        // Exit fullscreen if active
-        if (document.fullscreenElement) {
-            document.exitFullscreen();
-        } else if (document.webkitFullscreenElement) {
-            document.webkitExitFullscreen();
-        } else if (document.mozFullScreenElement) {
-            document.mozCancelFullScreen();
-        } else if (document.msFullscreenElement) {
-            document.msExitFullscreen();
-        }
+    // YouTube video ends after ~duration - set timeout to reset
+    // Since we can't easily detect YouTube video end without API,
+    // we'll reset after a reasonable duration or when user exits fullscreen
+    let videoResetTimeout;
 
-        // Navigate to reset endpoint (resets session and reloads)
-        window.location.href = RESET_URL;
-    });
+    function scheduleReset() {
+        // Reset after 30 seconds (adjust based on your video length)
+        videoResetTimeout = setTimeout(() => {
+            window.location.href = RESET_URL;
+        }, 30000);
+    }
 
     // Also reload if user exits fullscreen manually
     document.addEventListener('fullscreenchange', () => {
-        if (!document.fullscreenElement && video.classList.contains('playing')) {
+        if (!document.fullscreenElement && videoContainer.classList.contains('playing')) {
+            if (videoResetTimeout) {
+                clearTimeout(videoResetTimeout);
+            }
             setTimeout(() => {
                 window.location.href = RESET_URL;
             }, 500);
@@ -152,7 +153,6 @@
                 audio.load();
             }
         });
-        video.load();
     });
 
 })();

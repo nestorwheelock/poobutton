@@ -9,14 +9,9 @@ This is a minimal Django project to demonstrate the PooButton app in action.
    pip install -e ..
    ```
 
-2. **Add media files**:
+2. **Configure media**:
 
-   **Demo video included:** A sample demo video (`poobutton-demo.mp4`) is included in this directory. You can use it for testing:
-
-   ```bash
-   # The demo video is already copied to the static files
-   # Located at: ../poobutton/static/poobutton/video/finale.mp4
-   ```
+   **YouTube video:** The app uses an embedded YouTube video (https://youtu.be/i92cm8FrCLE). To change it, edit `../poobutton/templates/poobutton/index.html` and replace the video ID in the iframe src.
 
    **Audio files (REQUIRED - not included):**
 
@@ -60,10 +55,15 @@ After video ends, page should auto-reload and reset.
 
 ## Troubleshooting
 
-**No audio/video?**
-- Make sure you copied media files to the correct locations
+**No audio?**
+- Make sure you copied audio files to the correct locations
 - Check browser console for 404 errors
 - Audio files must be named exactly as specified
+
+**No video?**
+- Check that the YouTube video ID is correct
+- Verify the video is publicly accessible
+- Check browser console for iframe errors
 
 **Button doesn't work?**
 - Check browser console for JavaScript errors
@@ -72,4 +72,5 @@ After video ends, page should auto-reload and reset.
 
 **Video doesn't go fullscreen?**
 - iOS Safari doesn't support fullscreen API (this is expected)
-- Video will play inline on iOS instead
+- YouTube iframe will play inline on iOS instead
+- Some browsers block autoplay - user interaction required
