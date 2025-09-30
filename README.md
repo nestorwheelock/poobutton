@@ -70,6 +70,23 @@ A Django plugin that adds a fun "poo button" Easter egg to your website:
 - 5 audio files (fart + 4 warnings)
 - 1 video file (the finale)
 
+### Demo Preview
+
+**Video demo included in repository!**
+
+A sample video (`demo_project/poobutton-demo.mp4`) is provided so you can test the full button sequence immediately:
+
+https://github.com/nestorwheelock/poobutton/raw/main/demo_project/poobutton-demo.mp4
+
+The demo shows:
+- Retro arcade aesthetic with CRT scanlines
+- Big red glowing button
+- Button depression animation
+- Full-screen video trigger after 5 presses
+- Auto-reload functionality
+
+*Note: Audio files not included - add your own for full sound effects.*
+
 ---
 
 ## 🔧 Installation & Usage
