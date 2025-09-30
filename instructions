@@ -1,0 +1,13 @@
+This is going to be a django plugin that does the tollowing:
+
+As a user I
+
+visit a page and see a retro arcade game button that is red.  
+I can press the button and see it depress
+When I press the button I hear a sound like a fart
+Each time I press the button there's another sound like oops, uh ohh, don't do it again, we're warning you.. and this is displayed ni text that the user can see after each press
+Then on the final press the screen changes to a large full screen video playing.  I will upload the video to a directory.
+
+questions:
+Is it possible for you to generate or find the sounds or should I do that part?
+Can you think of anything I'm forgetting or missing or should consider?
